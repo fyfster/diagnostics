@@ -1,0 +1,29 @@
+# Define the checks
+checks = {
+    'vin': {'command': obd.commands.VIN, 'result': None},
+    'rpm': {'command': obd.commands.RPM, 'result': None},
+    'speed': {'command': obd.commands.SPEED, 'result': None},
+    'fuel_level': {'command': obd.commands.FUEL_LEVEL, 'result': None},
+    'coolant_temp': {'command': obd.commands.COOLANT_TEMP, 'result': None}
+}
+
+# Execute the checks
+for check_name, check in checks.items():
+    try:
+        response = connection.query(check['command'])
+        if check_name == 'vin':
+            check['result'] = response.value.decode('utf-8')
+        elif check_name in ['rpm', 'fuel_level']:
+            check['result'] = int(response.value.magnitude)
+        elif check_name == 'speed':
+            check['result'] = int(response.value.to("km/h").magnitude)
+        elif check_name == 'coolant_temp':
+            check['result'] = str(response.value.magnitude)
+    except Exception as e:
+        logging.error(f"An error occurred while querying {check_name}: {e}")
+
+# Prepare the payload
+payload = {check_name: check['result'] for check_name, check in checks.items()}
+
+
+
