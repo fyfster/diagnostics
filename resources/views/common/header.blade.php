@@ -10,6 +10,7 @@
     <meta name="author" content="">
 
     <title>Diagnostics @isset($pageTitle) - {{ $pageTitle }} @endisset</title>
+    <link rel="icon" type="image/png" href="{{ asset('images/car.webp') }}">
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('fontawesome-free/css/all.min.css') }}" rel="stylesheet">

@@ -8,7 +8,7 @@
         }
 
         .bg {
-            background-image: url("/diagnostics/images/widefrontpack.png");
+            background-image: url("/images/widefrontpack.png");
             height: 100%;
             background-position: center;
             background-repeat: no-repeat;
