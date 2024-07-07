@@ -68,7 +68,7 @@
 </li>
 
 <!-- Nav Item - Utilities Trucks Menu -->
-<li class="nav-item">
+<!-- <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTrucks"
         aria-expanded="true" aria-controls="collapseTrucks">
         <i class="fas fa-fw fa-truck"></i>
@@ -81,7 +81,7 @@
             <a class="collapse-item" href="utilities-border.html">Creare</a>
         </div>
     </div>
-</li>
+</li> -->
 
 <!-- Divider -->
 <hr class="sidebar-divider d-none d-md-block">

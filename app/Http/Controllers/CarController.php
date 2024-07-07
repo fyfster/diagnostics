@@ -27,16 +27,16 @@ class CarController extends MyController
 
     public function list($userId = null)
     {
-        $this->data['userId'] = $userId;
+        $this->data['userId'] = $userId ?? Auth::user()->id;
 
         return view('car/car_list', $this->data);
     }
 
-    public function listDataTables(Request $request)
+    public function listDataTables(Request $request, $userId = null)
     {
         $dataTablesFilters = DataTablesHelper::generateDefaultFilter($request, new DataTableCarFiltersDto);
         /** @var DataTableCarFiltersDto $dataTablesFilters*/
-        $dataTablesFilters->userId = Auth::user()->id;
+        $dataTablesFilters->userId = $userId;
 
         $cars = (new CarModel())->dataTablesGetCars($dataTablesFilters);
 

@@ -167,7 +167,7 @@
     var TOKEN = "{{ csrf_token() }}";
     var userId = "{{ $userId }}";
     var URL = {
-        carListDataTables: "{{ route('car-list-dataTables') }}"
+        carListDataTables: "{{ route('car-list-dataTables', ['userId' => $userId]) }}"
     };
 </script>
 <script src="{{ asset('datatables/jquery.dataTables.min.js') }}"></script>

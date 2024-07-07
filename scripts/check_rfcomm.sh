@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Log file path
-LOGFILE="/var/log/rfcomm_check.log"
+DATE=$(date +"%Y-%m-%d")
+LOGFILE="/var/log/rfcomm_check_$DATE.log"
 
 # Check if log file exists, if not, create it
 if ! [ -e $LOGFILE ]; then

@@ -5,15 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class UserCar extends MyModel
+class Notification extends MyModel
 {
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'user_car';
-
     /**
      * The attributes that are mass assignable.
      *
@@ -21,6 +14,9 @@ class UserCar extends MyModel
      */
     protected $fillable = [
         'user_id',
-        'car_id'
+        'type',
+        'data',
+        'read_at',
+        'created_at',
     ];
 }

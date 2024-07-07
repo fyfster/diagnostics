@@ -27,8 +27,8 @@ class CarDatatablesFormat implements DatatablesFormatInterface
         foreach ($cars as $car) {
             $car['actions'] = HtmlHelper::smallCircleButton(
                 ['href' => route('car-diagnostics'), 'id' => $car['id']],
-                ['btn-info'],
-                '<i class="fas fa-info-circle show-car-stats"></i>'
+                ['btn-info', 'show-car-stats'],
+                '<i class="fas fa-info-circle"></i>'
             );
 
             $car['actions'] .= HtmlHelper::smallCircleAnchor(
@@ -41,6 +41,12 @@ class CarDatatablesFormat implements DatatablesFormatInterface
                 ['href' => route('car-delete', ['carId' => $car['id']])],
                 ['btn-danger', 'car-delete-btn'],
                 '<i class="fas fa-trash" data-toggle="modal" data-target="#carDelete"></i>'
+            );
+
+            $car['actions'] .= HtmlHelper::smallCircleAnchor(
+                route('race-list', ['carId' => $car['id']]),
+                ['btn-secondary'],
+                '<i class="fas fa-chart-line"></i>'
             );
 
             $formattedCars[] = $car;

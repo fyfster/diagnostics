@@ -28,14 +28,14 @@ class UserDatatablesFormat implements DatatablesFormatInterface
             $user['actions'] = '';
             if ($user['car_count']) {
                 $user['actions'] = HtmlHelper::smallCircleAnchor(
-                    route('car-list', ['user_id' => $user['id']]),
+                    route('car-list', ['userId' => $user['id']]),
                     ['btn-info'],
                     '<i class="fas fa-car"></i>'
                 );
             }
 
             $user['actions'] .= HtmlHelper::smallCircleAnchor(
-                route('user-form', ['user_id' => $user['id']]),
+                route('user-form', ['userId' => $user['id']]),
                 ['btn-warning'],
                 '<i class="fas fa-pencil-alt"></i>'
             );

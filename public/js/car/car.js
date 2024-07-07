@@ -23,8 +23,8 @@ $(document).ready(function() {
     });
 
     $(document).on('click', '.show-car-stats', function() {
-        let carId = $(this).parent().data('id');
-        let url = $(this).parent().data('href');
+        let carId = $(this).data('id');
+        let url = $(this).data('href');
 
         // Function to send the AJAX request
         var refreshData = function() {
@@ -37,8 +37,7 @@ $(document).ready(function() {
                 type: 'POST',
                 success: function(response) {
                     let carDiagnostics = response.carDiagnostics;
-                    let createdAt = new Date(carDiagnostics.createdAt);
-                    $('#carInfo').find('#last_stats_date').html(createdAt.toUTCString().replace('GMT', ''));
+                    $('#carInfo').find('#last_stats_date').html(carDiagnostics.createdAt);
                     $('#carInfo').find('#speed_val').html(carDiagnostics.speed);
                     $('#carInfo').find('#fuel_val').html(carDiagnostics.fuelPercentage + "%");
                     $('#carInfo').find('#rpm_val').html(carDiagnostics.rpm);

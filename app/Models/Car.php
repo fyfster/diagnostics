@@ -5,13 +5,10 @@ namespace App\Models;
 use App\Dto\DataTables\DataTableCarFiltersDto;
 use App\Dto\DataTables\DataTableQueryResultDto;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
-class Car extends Model
+class Car extends MyModel
 {
-    use HasFactory;
-
     /**
      * The attributes that are mass assignable.
      *

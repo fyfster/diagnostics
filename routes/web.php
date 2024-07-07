@@ -4,6 +4,8 @@ use App\Http\Controllers\CarController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\RaceController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -23,7 +25,7 @@ Route::get('/', function () {
 
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-Route::post('car-list-dataTables', [CarController::class, 'listDataTables'])->name('car-list-dataTables');
+Route::post('car-list-dataTables/{userId?}', [CarController::class, 'listDataTables'])->name('car-list-dataTables');
 Route::post('car-create/{userId?}', [CarController::class, 'create'])->name('car-create');
 Route::post('car-edit', [CarController::class, 'edit'])->name('car-edit');
 Route::post('car-diagnostics', [CarController::class, 'diagnostics'])->name('car-diagnostics');
@@ -37,6 +39,14 @@ Route::post('user-edit', [UserController::class, 'edit'])->name('user-edit');
 Route::get('user-form/{userId?}', [UserController::class, 'form'])->name('user-form');
 Route::get('user-list', [UserController::class, 'list'])->name('user-list');
 Route::get('user-delete/{userId}', [UserController::class, 'delete'])->name('user-delete');
+
+Route::get('race-list/{carId}', [RaceController::class, 'list'])->name('race-list');
+Route::get('race-rename/{raceNr}', [RaceController::class, 'raceRename'])->name('race-rename');
+
+Route::get('car-rpm-chart', [RaceController::class, 'rpmChart'])->name('car-rpm-chart');
+
+Route::get('notifications', [NotificationController::class, 'getNotifications'])->name('notifications');
+Route::get('notifications-read', [NotificationController::class, 'markAsRead'])->name('notifications-read');
 
 Route::get('login', [LoginController::class, 'login']);
 Route::post('login', [LoginController::class, 'loginSubmit'])->name('login');

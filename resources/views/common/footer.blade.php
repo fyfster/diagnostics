@@ -22,6 +22,14 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
+    <script>
+        var TOKEN = "{{ csrf_token() }}";
+        var BASE_URL = {
+            notifications: "{{ route('notifications') }}",
+            notifications_read: "{{ route('notifications-read') }}"
+        };
+    </script>
+    <script src="{{ asset('js/notification.js') }}"></script>
 </body>
 
 </html>

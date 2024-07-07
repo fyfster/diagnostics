@@ -2,23 +2,36 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Car as CarModel;
 use App\Models\CarDiagnostics;
 
-class DashboardController extends MyController
+class RaceController extends MyController
 {
-    public function index()
-    {
-        $this->data['lastRaceChart'] = $this->getRaceChart();
+    CONST LAST_RACE_NUMBERS = 10;
 
-        return view('dashboard', $this->data);
+    public function list($carId = null)
+    {
+        $this->data['carId'] = $carId;
+
+        $this->checkCar(['car_id' => $carId]);
+
+        $carDiagnostics = new CarDiagnostics();
+        $races = $carDiagnostics->getRacesFoCar($carId, self::LAST_RACE_NUMBERS);
+
+        $charts = [];
+        foreach ($races as $race) {
+            $charts[$race->race_number] = $this->getRaceChart($carId, $race->race_number);
+        }
+        $this->data['races'] = $races;
+        $this->data['charts'] = $charts;
+        $this->data['race_nr'] = min(self::LAST_RACE_NUMBERS, count($races));
+
+        return view('race/race_list', $this->data);
     }
 
-    private function getRaceChart()
+    private function getRaceChart(int $carId, int $raceNumber)
     {
-        $lastCarDiagnostics = CarDiagnostics::where('car_id', 1)->orderBy('id', 'desc')->first();
-        $raceNumber = $lastCarDiagnostics->race_number;
-
-        $diagnostics = CarDiagnostics::where('car_id', 1)
+        $diagnostics = CarDiagnostics::where('car_id', $carId)
             ->where('race_number', $raceNumber)
             ->orderBy('created_at', 'asc')
             ->get();
@@ -33,7 +46,7 @@ class DashboardController extends MyController
         return app()
             ->chartjs->name("CarSpeedChart$raceNumber")
             ->type("line")
-            ->size(["width" => 400, "height" => 170])
+            ->size(["width" => 400, "height" => 150])
             ->labels($hours)
             ->datasets([
                 [
@@ -74,5 +87,20 @@ class DashboardController extends MyController
                     ]
                 ]
             ]);
+    }
+
+    private function checkCar(array $input)
+    {
+        $carId = $input['car_id'];
+
+        $car = CarModel::find($carId);
+
+        if ($car === null) {
+            return back()
+                ->with($input)
+                ->withErrors('Nu s-a gasit masina cu id-ul specificat!');
+        }
+
+        return $car;
     }
 }

@@ -2,15 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
-class CarDiagnostics extends Model
+class CarDiagnostics extends MyModel
 {
     CONST PAUSE_TIME = 10;
-
-    use HasFactory;
 
     /**
      * The attributes that are mass assignable.
@@ -46,6 +44,24 @@ class CarDiagnostics extends Model
             ->orderBy('stats1.created_at')
             ->limit(1)
             ->first();
+
+        return $result;
+    }
+
+    public function getRacesFoCar(int $carId, int $limit): ?Collection
+    {
+        $result = $this->from('car_diagnostics as stats')
+            ->selectRaw('stats.id,
+                stats.race_number, 
+                stats.car_id,
+                MAX(stats.created_at) as max_created_at,
+                MIN(stats.created_at) as min_created_at
+            ')
+            ->where('stats.car_id', $carId)
+            ->groupBy('stats.race_number')
+            ->orderBy('stats.race_number', 'desc')
+            ->limit($limit)
+            ->get();
 
         return $result;
     }

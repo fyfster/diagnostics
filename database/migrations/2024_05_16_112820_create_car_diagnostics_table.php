@@ -18,6 +18,10 @@ return new class extends Migration
             $table->integer('rpm')->nullable();
             $table->integer('fuel_percentage')->nullable();
             $table->integer('coolant_temperature')->nullable();
+            $table->integer('fuel_rate')->nullable();
+            $table->integer('engine_load')->nullable();
+            $table->string('dtc')->nullable();
+            $table->integer('total_km')->nullable();
             $table->timestamp('created_at', 0)->nullable();
             $table->unsignedBigInteger('race_number')->default(0);
 
