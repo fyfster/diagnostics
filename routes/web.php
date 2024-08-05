@@ -47,6 +47,8 @@ Route::get('car-rpm-chart', [RaceController::class, 'rpmChart'])->name('car-rpm-
 
 Route::get('notifications', [NotificationController::class, 'getNotifications'])->name('notifications');
 Route::get('notifications-read', [NotificationController::class, 'markAsRead'])->name('notifications-read');
+Route::get('notification-list', [NotificationController::class, 'getNotificationList'])->name('notification-list');
+
 
 Route::get('login', [LoginController::class, 'login']);
 Route::post('login', [LoginController::class, 'loginSubmit'])->name('login');

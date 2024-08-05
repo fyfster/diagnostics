@@ -21,7 +21,12 @@ class CarDiagnostics extends MyModel
         'rpm',
         'fuel_percentage',
         'coolant_temperature',
-        'race_number'
+        'race_number',
+        'engine_load',
+        'fuel_rate',
+        'dtc',
+        'total_km',
+        
     ];
 
     public function getLastRaceIdBeforePause(int $carId): ?CarDiagnostics

@@ -83,6 +83,13 @@
     </div>
 </li> -->
 
+<!-- Nav Item - Pages Notification Menu -->
+<li class="nav-item">
+    <a class="nav-link" href="{{ route('notification-list')}}">
+        <i class="fas fa-fw fa-bell"></i>
+        <span>Istoric notificari</span></a>
+</li>
+
 <!-- Divider -->
 <hr class="sidebar-divider d-none d-md-block">
 
