@@ -13,8 +13,6 @@ RUN apt-get update && apt-get install -y \
     libfreetype6-dev \
     zip \
     unzip \
-    nodejs \
-    npm \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install gd pdo pdo_mysql
 
@@ -27,11 +25,11 @@ COPY . .
 # Install PHP dependencies
 RUN composer install
 
-# Install NPM dependencies and build assets
-RUN npm install 
+# Set permissions for Laravel storage and cache folders
+RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
-RUN npm run build
-
-# Expose port 9000 and start php-fpm server
+# Expose port 9000 for PHP-FPM
 EXPOSE 9000
+
+# Start PHP-FPM
 CMD ["php-fpm"]
