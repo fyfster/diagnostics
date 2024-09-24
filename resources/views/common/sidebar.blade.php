@@ -3,6 +3,7 @@
 
 <!-- Sidebar - Brand -->
 <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('dashboard')}}">
+    <!-- <img class="img-profile rounded-circle" src="http://localhost/diagnostics/public/images/logo.jpeg"> -->
     <div class="sidebar-brand-icon rotate-n-15">
         <i class="fas fa-car-battery"></i>
     </div>
@@ -12,12 +13,7 @@
 <!-- Divider -->
 <hr class="sidebar-divider my-0">
 
-<!-- Nav Item - Dashboard -->
-<li class="nav-item active">
-    <a class="nav-link" href="{{ route('dashboard')}}">
-        <i class="fas fa-fw fa-tachometer-alt"></i>
-        <span>Dashboard</span></a>
-</li>
+
 
 <!-- Divider -->
 <hr class="sidebar-divider">
@@ -25,6 +21,28 @@
 <!-- Heading -->
 <div class="sidebar-heading">
     Admin
+</div>
+
+<!-- Nav Item - Dashboard -->
+<li class="nav-item active">
+    <a class="nav-link" href="{{ route('dashboard')}}">
+        <i class="fas fa-fw fa-tachometer-alt"></i>
+        <span>Dashboard</span></a>
+</li>
+
+<!-- Nav Item - Pages Notification Menu -->
+<li class="nav-item">
+    <a class="nav-link" href="{{ route('notification-list')}}">
+        <i class="fas fa-fw fa-bell"></i>
+        <span>Istoric notificari</span></a>
+</li>
+
+<!-- Divider -->
+<hr class="sidebar-divider">
+
+<!-- Heading -->
+<div class="sidebar-heading">
+    Management
 </div>
 
 <!-- Nav Item - Pages Cars Menu -->
@@ -43,14 +61,6 @@
     </div>
 </li>
 
-<!-- Divider -->
-<hr class="sidebar-divider">
-
-<!-- Heading -->
-<div class="sidebar-heading">
-    Management
-</div>
-
 <!-- Nav Item - Pages Cars Menu -->
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCars"
@@ -68,7 +78,7 @@
 </li>
 
 <!-- Nav Item - Utilities Trucks Menu -->
-<!-- <li class="nav-item">
+<li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTrucks"
         aria-expanded="true" aria-controls="collapseTrucks">
         <i class="fas fa-fw fa-truck"></i>
@@ -81,13 +91,6 @@
             <a class="collapse-item" href="utilities-border.html">Creare</a>
         </div>
     </div>
-</li> -->
-
-<!-- Nav Item - Pages Notification Menu -->
-<li class="nav-item">
-    <a class="nav-link" href="{{ route('notification-list')}}">
-        <i class="fas fa-fw fa-bell"></i>
-        <span>Istoric notificari</span></a>
 </li>
 
 <!-- Divider -->

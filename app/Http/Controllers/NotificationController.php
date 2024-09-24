@@ -2,7 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\Datatables\NotificationDatatablesFormat;
+use App\Dto\DataTables\DataTableDefaultFiltersDto;
+use App\Dto\DataTables\DataTableNotificationFiltersDto;
+use App\Helpers\DataTablesHelper;
+use App\Models\Car;
 use App\Models\Notification;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class NotificationController extends MyController
@@ -27,10 +33,27 @@ class NotificationController extends MyController
 
     public function getNotificationList()
     {
-        $this->data['notifications'] = Notification::where('user_id', Auth::user()->id)
-            ->orderBy('created_at', 'desc')
-            ->get();
+        $this->data['userId'] = Auth::user()->id;
 
-        return view('notification-list', $this->data);
+        $this->data['cars'] = (new Car())->getUserCars(Auth::user()->id);
+
+        return view('notification/notification_list', $this->data);
+    }
+
+    public function listDataTables(Request $request, $userId = null)
+    {
+        $dataTablesFilters = DataTablesHelper::generateDefaultFilter($request, new DataTableNotificationFiltersDto);
+        /** @var DataTableNotificationFiltersDto $dataTablesFilters*/
+        $dataTablesFilters->userId = $userId;
+        $carId = $request->input('car_id');
+        if ($carId && !Car::find($carId)) {
+            return response()->json(''); 
+        }
+
+        $dataTablesFilters->carId = $carId;
+
+        $notifications = (new Notification())->dataTablesGetNotifications($dataTablesFilters);
+
+        return response()->json(NotificationDatatablesFormat::format($notifications, $dataTablesFilters));
     }
 }

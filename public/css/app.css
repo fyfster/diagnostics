@@ -1,3 +1,36 @@
 .column-actions {
     min-width: 90px !important;
 }
+
+float-right {
+    float: right;
+}
+
+.custom-select {
+    background-color: #f8f9fa;
+    border: 2px solid #6c757d;
+    border-radius: 10px;
+    padding: 5px 15px;
+    width: 250px;
+  }
+
+  .custom-select:hover {
+    background-color: #e9ecef;
+    border-color: #5a6268; 
+  }
+
+  .custom-select:focus {
+    border-color: #505749;
+    outline: none;
+    box-shadow: none;
+  }
+
+  .custom-select option {
+    padding: 10px;
+    font-weight: 500;
+  }
+
+  .custom-select[disabled] {
+    background-color: #e9ecef;
+    color: #6c757d;
+  }

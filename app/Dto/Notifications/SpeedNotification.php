@@ -6,8 +6,9 @@ class SpeedNotification implements NotificationInterface
 {
     protected $data;
     protected $type = 'speed';
+    protected $icon = 'fa-car-crash';
 
-    public function __construct(string $data)
+    public function __construct(string $data = null)
     {
         $this->data = $data;
     }
@@ -20,5 +21,15 @@ class SpeedNotification implements NotificationInterface
     public function getType()
     {
         return $this->type;
+    }
+
+    public function setData(string $data)
+    {
+        $this->data = $data;
+    }
+
+    public function getFaIcon()
+    {
+        return $this->icon;
     }
 }

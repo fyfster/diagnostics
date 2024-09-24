@@ -2,7 +2,6 @@
 
 namespace App\Classes\Datatables;
 
-use App\Dto\CarDto;
 use App\Dto\DataTables\DataTableDefaultFiltersDto;
 use App\Dto\DataTables\DataTableQueryResultDto;
 use App\Dto\DataTables\DataTableReturnDto;

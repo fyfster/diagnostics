@@ -23,6 +23,15 @@ class Car extends MyModel
         'vin',
     ];
 
+    public function getUserCars(int $userId): object
+    {
+        return $this->from('cars as c')
+            ->select('c.id', DB::raw('CONCAT(c.name, " - ", c.model, " ", c.brand) AS name'))
+            ->join('user_car as uc', 'uc.car_id', '=', 'c.id')
+            ->where('uc.user_id', $userId)
+            ->get();
+    }
+
     public function dataTablesGetCars(DataTableCarFiltersDto $filters): DataTableQueryResultDto
     {
         $query = $this->from('cars as c')

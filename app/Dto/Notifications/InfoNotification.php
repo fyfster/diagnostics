@@ -2,13 +2,13 @@
 
 namespace App\Dto\Notifications;
 
-class RpmNotification implements NotificationInterface
+class InfoNotification implements NotificationInterface
 {
     protected $data;
-    protected $type = 'rpm';
-    protected $icon = 'fa-car-battery';
+    protected $type = 'info';
+    protected $icon = 'fa-info-circle';
 
-    public function __construct($data = null)
+    public function __construct(string $data = null)
     {
         $this->data = $data;
     }

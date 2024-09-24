@@ -55,6 +55,7 @@ $(document).ready(function () {
 
     fetchNotifications();
 
+
     setInterval(fetchNotifications, 10000);
 
     document.querySelector('.fa-bell').addEventListener('click', function () {
@@ -64,4 +65,5 @@ $(document).ready(function () {
             console.log(data.message);
         });
     });
+
 });

@@ -2,6 +2,8 @@
 
 namespace App\Helpers;
 
+use App\Dto\Notifications\InfoNotification;
+use App\Dto\Notifications\NotificationInterface;
 use App\Dto\Notifications\RpmNotification;
 use App\Dto\Notifications\SpeedNotification;
 use App\Models\Notification;
@@ -20,7 +22,7 @@ class NotificationHelper
 
         if ($diagnostic['speed'] > self::MAX_SPEED) {
             $notificationMessage = sprintf(
-                "Autovehicolul  %s a ajuns la viteza %s", 
+                "Autovehicolul %s a ajuns la viteza %s", 
                 $diagnostic["carName"], 
                 $diagnostic['speed']
             );
@@ -29,7 +31,7 @@ class NotificationHelper
 
         if ($diagnostic['rpm'] > self::MAX_RPM) {
             $notificationMessage = sprintf(
-                "Autovehicolul  %s a ajuns la turatiile %s", 
+                "Autovehicolul %s a ajuns la turatiile %s", 
                 $diagnostic["carName"], 
                 $diagnostic['rpm']
             );
@@ -54,5 +56,14 @@ class NotificationHelper
                 'created_at' => now(),
             ]);
         }
+    }
+
+    static public function getNotificationByType(string $notificationType): NotificationInterface
+    {
+        return match ($notificationType) {
+            'speed' => new SpeedNotification(),
+            'rpm' => new RpmNotification(),
+            'info' => new InfoNotification(),
+        };
     }
 }

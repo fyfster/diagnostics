@@ -6,4 +6,5 @@ interface NotificationInterface
 {
     public function getData();
     public function getType();
+    public function getFaIcon();
 }
