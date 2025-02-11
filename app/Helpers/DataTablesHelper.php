@@ -20,18 +20,21 @@ class DataTablesHelper
         $filters->orderMultipleColumns = '';
         $order = $request->input('order');
 
-        if ($order) {
-            foreach ($order as $key => $order_column_index) {
-                $order_column = $request->input('columns.' . $order_column_index['column']);
+        if (!$order) {
+            return $filters;
+        }
 
-                if ($order_column) {
-                    if ($filters->orderMultipleColumns) {
-                        $filters->orderMultipleColumns .= ", ";
-                    }
-
-                    $filters->orderMultipleColumns .= $order_column['data'] . " " . $request->input('order.' . $key . '.dir');
-                }
+        foreach ($order as $key => $order_column_index) {
+            $orderColumn = $request->input('columns.' . $order_column_index['column']);
+            if (!$orderColumn) {
+                continue;
             }
+
+            if ($filters->orderMultipleColumns) {
+                $filters->orderMultipleColumns .= ", ";
+            }
+
+            $filters->orderMultipleColumns .= $orderColumn['data'] . " " . $request->input('order.' . $key . '.dir');
         }
 
         return $filters;

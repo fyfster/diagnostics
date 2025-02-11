@@ -17,6 +17,9 @@ $(document).ready(function () {
             { data: 'title'},
             { data: 'created_at'},
         ],
+        columnDefs: [
+            { orderable: false, targets: 0 }
+        ],
         processing: true,
         serverSide: true
     });

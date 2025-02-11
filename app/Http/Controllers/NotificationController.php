@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Classes\Datatables\NotificationDatatablesFormat;
-use App\Dto\DataTables\DataTableDefaultFiltersDto;
 use App\Dto\DataTables\DataTableNotificationFiltersDto;
 use App\Helpers\DataTablesHelper;
 use App\Models\Car;
@@ -28,7 +27,7 @@ class NotificationController extends MyController
             ->whereNull('read_at')
             ->update(['read_at' => now()]);
 
-        return response()->json(['message' => 'All notifications marked as read']);
+        return response()->json(['message' => 'You are up to date with all notifications']);
     }
 
     public function getNotificationList()
@@ -50,7 +49,7 @@ class NotificationController extends MyController
             return response()->json(''); 
         }
 
-        $dataTablesFilters->carId = $carId;
+        $dataTablesFilters->carId = $carId ? $carId : null;
 
         $notifications = (new Notification())->dataTablesGetNotifications($dataTablesFilters);
 

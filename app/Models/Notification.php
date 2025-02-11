@@ -39,7 +39,6 @@ class Notification extends MyModel
             ->when($filters->orderColumnName, function ($query, $orderColumnName) use ($filters) {
                 return $query->orderBy($orderColumnName, $filters->orderColumnDir);
             });
-        // var_dump($filters);
 
         $count = (clone $query)->count();
         $result = $query

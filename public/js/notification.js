@@ -55,15 +55,23 @@ $(document).ready(function () {
 
     fetchNotifications();
 
-
     setInterval(fetchNotifications, 10000);
 
-    document.querySelector('.fa-bell').addEventListener('click', function () {
+    $(document).on('click', '.fa-bell', function() {
         fetch(BASE_URL.notifications_read)
         .then(response => response.json())
         .then(data => {
-            console.log(data.message);
+            let counter = document.querySelector('.badge-counter');
+            if (counter.innerHTML == '') {
+                let dropdown = document.querySelector('.dropdown-menu');
+                let dropdownItem = document.createElement('a');
+                dropdownItem.innerHTML = `
+                        <div>
+                            <span class="font-weight-bold">${data.message}</span>
+                        </div>
+                    `;
+                dropdown.appendChild(dropdownItem);
+            }
         });
     });
-
 });

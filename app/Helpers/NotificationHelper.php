@@ -7,9 +7,6 @@ use App\Dto\Notifications\NotificationInterface;
 use App\Dto\Notifications\RpmNotification;
 use App\Dto\Notifications\SpeedNotification;
 use App\Models\Notification;
-use App\Models\User;
-use App\Notifications\DatabaseNotification;
-use Illuminate\Support\Facades\Auth;
 
 class NotificationHelper
 {
