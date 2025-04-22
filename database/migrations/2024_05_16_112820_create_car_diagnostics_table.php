@@ -22,6 +22,8 @@ return new class extends Migration
             $table->integer('engine_load')->nullable();
             $table->string('dtc')->nullable();
             $table->integer('total_km')->nullable();
+            $table->decimal('latitude', 9, 6)->nullable();
+            $table->decimal('longitude', 9, 6)->nullable();
             $table->timestamp('created_at', 0)->nullable();
             $table->unsignedBigInteger('race_number')->default(0);
 

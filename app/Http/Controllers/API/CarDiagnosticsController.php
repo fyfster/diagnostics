@@ -54,7 +54,7 @@ class CarDiagnosticsController extends MyApiController
         ];
 
         NotificationHelper::notify(
-            $notificationInfo, 
+            $notificationInfo,
             UserCar::where('car_id', $carDto->id)->first()->user_id
         );
 
@@ -103,6 +103,8 @@ class CarDiagnosticsController extends MyApiController
             'dtc' => 'string',
             'egr' => 'integer|min:0|max:100',
             'odometer' => 'integer|min:0',
+            'latitude' => 'nullable|numeric|between:-90,90|decimal:0,6',
+            'longitude' => 'nullable|numeric|between:-180,180|decimal:0,6',
         ]);
     }
 }
