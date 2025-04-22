@@ -130,7 +130,7 @@ class CarController extends MyController
     public function diagnostics(Request $request)
     {
         $carId = $request->get('carId');
-        
+
         $carDiagnsoticsResult = CarDiagnostics::where('car_id', $carId)->orderBy('id', 'desc')->first();
         if ($carDiagnsoticsResult) {
             $carDiagnosticsMax = CarDiagnostics::where('car_id', $carId)

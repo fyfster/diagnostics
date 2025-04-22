@@ -14,7 +14,9 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens;
+    use HasFactory;
+    use Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -72,5 +74,34 @@ class User extends Authenticatable
             ->toArray();
 
         return DataTableQueryResultDto::create(['count' => $count, 'result' => $result]);
+    }
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
+
+    public function hasRole($role)
+    {
+        return $this->roles->contains('name', $role);
+    }
+
+    public function hasPermission($permission)
+    {
+        if ($this->isAdmin()) {
+            return true;
+        }
+
+        foreach ($this->roles as $role) {
+            if ($role->permissions->contains('name', $permission)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public function isAdmin()
+    {
+        return $this->roles->contains(fn ($role) => strtolower($role->name) === Role::ADMIN);
     }
 }

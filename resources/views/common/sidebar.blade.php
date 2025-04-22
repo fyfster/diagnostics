@@ -20,7 +20,7 @@
 
 <!-- Heading -->
 <div class="sidebar-heading">
-    Admin
+    Basic
 </div>
 
 <!-- Nav Item - Dashboard -->
@@ -45,7 +45,8 @@
     Management
 </div>
 
-<!-- Nav Item - Pages Cars Menu -->
+@if (auth()->user()->hasPermission('user-read'))
+<!-- Nav Item - Pages Users Menu -->
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUsers"
         aria-expanded="true" aria-controls="collapseUsers">
@@ -56,12 +57,16 @@
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Utilizatori:</h6>
             <a class="collapse-item" href="{{ route('user-list')}}">Lista</a>
+            @if (auth()->user()->hasPermission('user-create'))
             <a class="collapse-item" href="{{ route('user-form')}}">Creare</a>
+            @endif
         </div>
     </div>
 </li>
+@endif
 
 <!-- Nav Item - Pages Cars Menu -->
+@if (auth()->user()->hasPermission('car-read'))
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCars"
         aria-expanded="true" aria-controls="collapseCars">
@@ -72,12 +77,16 @@
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Masini:</h6>
             <a class="collapse-item" href="{{ route('car-list')}}">Lista</a>
+            @if (auth()->user()->hasPermission('car-create'))
             <a class="collapse-item" href="{{ route('car-form')}}">Creare</a>
+            @endif
         </div>
     </div>
 </li>
+@endif
 
 <!-- Nav Item - Utilities Trucks Menu -->
+@if (auth()->user()->hasPermission('truck-read'))
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTrucks"
         aria-expanded="true" aria-controls="collapseTrucks">
@@ -88,10 +97,13 @@
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Camioane:</h6>
             <a class="collapse-item" href="utilities-color.html">Lista</a>
+            @if (auth()->user()->hasPermission('car-create'))
             <a class="collapse-item" href="utilities-border.html">Creare</a>
+            @endif
         </div>
     </div>
 </li>
+@endif
 
 <!-- Divider -->
 <hr class="sidebar-divider d-none d-md-block">

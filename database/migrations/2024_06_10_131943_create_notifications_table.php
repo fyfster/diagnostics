@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('type');
             $table->text('data');
             $table->timestamp('read_at')->nullable();
-            $table->timestamps();
+            $table->timestamps(0);
         });
     }
 

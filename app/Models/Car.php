@@ -4,7 +4,6 @@ namespace App\Models;
 
 use App\Dto\DataTables\DataTableCarFiltersDto;
 use App\Dto\DataTables\DataTableQueryResultDto;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Facades\DB;
 
 class Car extends MyModel

@@ -25,20 +25,46 @@ Route::get('/', function () {
 
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-Route::post('car-list-dataTables/{userId?}', [CarController::class, 'listDataTables'])->name('car-list-dataTables');
-Route::post('car-create/{userId?}', [CarController::class, 'create'])->name('car-create');
-Route::post('car-edit', [CarController::class, 'edit'])->name('car-edit');
-Route::post('car-diagnostics', [CarController::class, 'diagnostics'])->name('car-diagnostics');
-Route::get('car-list/{userId?}', [CarController::class, 'list'])->name('car-list');
-Route::get('car-form/{carId?}', [CarController::class, 'form'])->name('car-form');
-Route::get('car-delete/{carId}', [CarController::class, 'delete'])->name('car-delete');
+Route::post('car-list-dataTables/{userId?}', [CarController::class, 'listDataTables'])
+    ->name('car-list-dataTables')
+    ->middleware('permission:car-read');
+Route::post('car-create/{userId?}', [CarController::class, 'create'])
+    ->name('car-create')
+    ->middleware('permission:car-create');
+Route::post('car-edit', [CarController::class, 'edit'])
+    ->name('car-edit')
+    ->middleware('permission:car-edit');
+Route::post('car-diagnostics', [CarController::class, 'diagnostics'])
+    ->name('car-diagnostics')
+    ->middleware('permission:car-read');
+Route::get('car-list/{userId?}', [CarController::class, 'list'])
+    ->name('car-list')
+    ->middleware('permission:car-read');
+Route::get('car-form/{carId?}', [CarController::class, 'form'])
+    ->name('car-form')
+    ->middleware('permission:car-create');
+Route::get('car-delete/{carId}', [CarController::class, 'delete'])
+    ->name('car-delete')
+    ->middleware('permission:car-delete');
 
-Route::post('user-list-dataTables', [UserController::class, 'listDataTables'])->name('user-list-dataTables');
-Route::post('user-create', [UserController::class, 'create'])->name('user-create');
-Route::post('user-edit', [UserController::class, 'edit'])->name('user-edit');
-Route::get('user-form/{userId?}', [UserController::class, 'form'])->name('user-form');
-Route::get('user-list', [UserController::class, 'list'])->name('user-list');
-Route::get('user-delete/{userId}', [UserController::class, 'delete'])->name('user-delete');
+Route::post('user-list-dataTables', [UserController::class, 'listDataTables'])
+    ->name('user-list-dataTables')
+    ->middleware('permission:user-read');
+Route::post('user-create', [UserController::class, 'create'])
+    ->name('user-create')
+    ->middleware('permission:user-create');
+Route::post('user-edit', [UserController::class, 'edit'])
+    ->name('user-edit')
+    ->middleware('permission:user-edit');
+Route::get('user-form/{userId?}', [UserController::class, 'form'])
+    ->name('user-form')
+    ->middleware('permission:user-edit');
+Route::get('user-list', [UserController::class, 'list'])
+    ->name('user-list')
+    ->middleware('permission:user-read');
+Route::get('user-delete/{userId}', [UserController::class, 'delete'])
+    ->name('user-delete')
+    ->middleware('permission:user-delete');
 
 Route::get('race-list/{carId}', [RaceController::class, 'list'])->name('race-list');
 Route::get('race-rename/{raceNr}', [RaceController::class, 'raceRename'])->name('race-rename');
