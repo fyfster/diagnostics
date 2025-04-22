@@ -1,6 +1,6 @@
 # 🚗 Vehicle Telemetry Platform
 
-This is a real-time vehicle monitoring platform built with a Laravel + MySQL backend and a Raspberry Pi-based client that collects OBD-II car data via Bluetooth and sends it via GSM to a custom API endpoint.
+This is a real-time vehicle monitoring project with a Laravel + MySQL backend and a Raspberry Pi-based client that collects OBD-II car data via Bluetooth and sends it via GSM to a custom API endpoint.
 
 ---
 
@@ -34,6 +34,8 @@ This is a real-time vehicle monitoring platform built with a Laravel + MySQL bac
    - Tables
    - Charts
    - Reports
+   - Dashboard
+5. When abnormal data is given fom the device alerts are generated and shown as notifications on the platform
 
 ---
 
