@@ -1,0 +1,27 @@
+<?php
+
+return [
+    'list' => 'Lista masini',
+    'add' => 'Adauga masina',
+    'name' => 'Nume',
+    'brand' => 'Marca',
+    'model' => 'Model',
+    'vin' => 'VIN',
+    'reg_nr' => 'Nr. Inmatriculare',
+    'production_year' => 'An productie',
+    'actions' => 'Actiuni',
+    'delete' => 'Stergeti masina?',
+    'delete_confirm' => 'Esti sigur ca doresti sa stergi masina din lista?',
+    'stats_live' => 'Statistici masina LIVE',
+    'stats_data' => 'Data statistici',
+    'max_values' => 'Valori maxime in timpul ultimei rulari',
+    'max_rotation' => 'Rotatii',
+    'max_speed' => 'Viteza',
+    'speed' => 'Viteza',
+    'fuel_level' => 'Nivel compustibil',
+    'rotation' => 'Rotatii',
+    'cooler_temp' => 'Temperatura racitor',
+    'change' => 'Modifica',
+    'add_new_car' => 'Adauga o noua masina',
+    'nickname' => 'Porecla masina',
+];

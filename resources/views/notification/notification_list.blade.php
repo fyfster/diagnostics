@@ -17,14 +17,14 @@
             <div class="col-lg-12">
                 <div class="card mb-4">
                     <div class="card-header">
-                        <h6 class="m-0 font-weight-bold text-primary">Istoric notificari</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">{{ __('notification.notification_history') }}</h6>
                     </div>
                     <div class="card-body">
                     <div class="card shadow mb-4">
                         <div class="card-body">
                             <div class="btn-group float-right mb-4">
                                 <select class="custom-select" id="carId" aria-label="Select a car">
-                                    <option value="0" selected>Select a car</option>
+                                    <option value="0" selected>{{ __('notification.select_car') }}</option>
                                     @foreach($cars as $car)
                                         <option value="{{ $car->id }}">{{ $car->name }}</option>
                                     @endforeach
@@ -39,8 +39,8 @@
                                 <table class="table table-bordered" id="notificationDataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Titlu</th>
-                                            <th>Data</th>
+                                            <th>{{ __('notification.title') }}</th>
+                                            <th>{{ __('notification.date') }}</th>
                                         </tr>
                                     </thead>
                                 </table>

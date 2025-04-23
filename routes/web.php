@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LangController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\NotificationController;
@@ -79,3 +80,5 @@ Route::get('notification-list-dataTables/{userId?}', [NotificationController::cl
 Route::get('login', [LoginController::class, 'login']);
 Route::post('login', [LoginController::class, 'loginSubmit'])->name('login');
 Route::get('logout', [LoginController::class, 'logout'])->name('logout');
+
+Route::get('/lang/{locale}', [LangController::class, 'lang'])->name('lang-switch');

@@ -1,6 +1,9 @@
 $(document).ready(function () {
 
     var notificationDataTable = $('#notificationDataTable').DataTable({
+        language: {
+            url: DATATABLES_LOCALE_URL
+        },
         ajax: {
             url: URL.notificationListDataTables,
             type: 'GET',
@@ -14,8 +17,8 @@ $(document).ready(function () {
             [1, 'desc']
         ],
         columns: [
-            { data: 'title'},
-            { data: 'created_at'},
+            { data: 'title' },
+            { data: 'created_at' },
         ],
         columnDefs: [
             { orderable: false, targets: 0 }
@@ -24,8 +27,8 @@ $(document).ready(function () {
         serverSide: true
     });
 
-    $(document).on('change', '#carId', function() {
+    $(document).on('change', '#carId', function () {
         notificationDataTable.ajax.reload()
     });
-    
+
 });

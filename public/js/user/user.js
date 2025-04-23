@@ -1,7 +1,10 @@
-$(document).ready(function() {
+$(document).ready(function () {
     var refreshIntervalId;
-    
+
     $('#userDataTable').DataTable({
+        language: {
+            url: DATATABLES_LOCALE_URL
+        },
         ajax: {
             url: URL.userListDataTables,
             type: 'POST',
@@ -10,16 +13,16 @@ $(document).ready(function() {
             }
         },
         columns: [
-            { data: 'username'},
-            { data: 'email'},
-            { data: 'name'},
-            { data: 'actions'}
+            { data: 'username' },
+            { data: 'email' },
+            { data: 'name' },
+            { data: 'actions' }
         ],
         processing: true,
         serverSide: true
     });
 
-    $(document).on('click', '.user-delete-btn', function() {
+    $(document).on('click', '.user-delete-btn', function () {
         $('.user-delete-yes').attr('href', $(this).data('href'));
     });
 });

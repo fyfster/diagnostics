@@ -19,7 +19,7 @@
                         <!-- Card Header - Dropdown -->
                         <div
                             class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                            <h6 class="m-0 font-weight-bold text-primary">Ultima cursa</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">{{ __('dashboard.last_race') }}</h6>
                         </div>
                         <!-- Card Body -->
                         <div class="card-body">
@@ -28,7 +28,7 @@
                             <div class="chart-area">
                                 {!! $lastRaceChart->render() !!}
                             </div>
-                            <a class="h6 text-xs" target="_blank" rel="nofollow" href="">Pentru a vedea toate cursele masinii: &rarr;</a>
+                            <a class="h6 text-xs" target="_blank" rel="nofollow" href="">{{ __('dashboard.view_all_races') }}: &rarr;</a>
                         </div>
                     </div>
                 </div>
@@ -39,7 +39,7 @@
                         <!-- Card Header - Dropdown -->
                         <div
                             class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                            <h6 class="m-0 font-weight-bold text-primary">Notificari</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">{{ __('dashboard.notifications') }}</h6>
                         </div>
                         <!-- Card Body -->
                         <div class="card-body">
@@ -48,16 +48,16 @@
                             </div>
                             <div class="mt-4 text-center small">
                                 <span class="mr-2">
-                                    <i class="fas fa-circle text-danger"></i> Viteza
+                                    <i class="fas fa-circle text-danger"></i> {{ __('dashboard.speed') }}
                                 </span>
                                 <span class="mr-2">
-                                    <i class="fas fa-circle text-warning"></i> Turatii
+                                    <i class="fas fa-circle text-warning"></i> {{ __('dashboard.rotation') }}
                                 </span>
                                 <span class="mr-2">
-                                    <i class="fas fa-circle text-primary"></i> Informare
+                                    <i class="fas fa-circle text-primary"></i> {{ __('dashboard.information') }}
                                 </span>
                             </div>
-                            <a class="h6 text-xs" target="_blank" rel="nofollow" href="">Pentru fiecare masina in parte: &rarr;</a>
+                            <a class="h6 text-xs" target="_blank" rel="nofollow" href="">{{ __('dashboard.for_all_cars') }}: &rarr;</a>
                         </div>
                     </div>
                 </div>
@@ -67,7 +67,7 @@
                     <div class="card shadow mb-4">
                         <a href="#collapseCardDaily" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardDaily">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Statistici zilnice pentru toate masinile</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">{{ __('dashboard.daily_stats') }}</h6>
                             </div>
                         </a>
 
@@ -79,9 +79,9 @@
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col mr-2">
                                                     <div class="h6 font-weight-bold text-primary text-uppercase mb-1">
-                                                        Kilometri parcursi</div>
+                                                    {{ __('dashboard.km_done') }}</div>
                                                     <div class="h2 mb-0 font-weight-bold text-gray-800">155</div>
-                                                    <a class="h6 text-xs" target="_blank" rel="nofollow" href="">Pentru fiecare masina in parte: &rarr;</a>
+                                                    <a class="h6 text-xs" target="_blank" rel="nofollow" href="">{{ __('dashboard.for_all_cars') }}: &rarr;</a>
                                                 </div>
                                                 <div class="col-auto">
                                                     <i class="fas fa-car-side fa-2x text-gray-300"></i>
@@ -99,9 +99,9 @@
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col mr-2">
                                                     <div class="h6 font-weight-bold text-success text-uppercase mb-1">
-                                                        Numar de curse</div>
+                                                    {{ __('dashboard.nr_of_races') }}</div>
                                                     <div class="h2 mb-0 font-weight-bold text-gray-800">2</div>
-                                                    <a class="h6 text-xs" target="_blank" rel="nofollow" href="">Pentru fiecare masina in parte: &rarr;</a>
+                                                    <a class="h6 text-xs" target="_blank" rel="nofollow" href="">{{ __('dashboard.for_all_cars') }}: &rarr;</a>
                                                 </div>
                                                 <div class="col-auto">
                                                     <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -119,9 +119,9 @@
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col mr-2">
                                                     <div class="h6 font-weight-bold text-info text-uppercase mb-1">
-                                                        Viteza medie</div>
+                                                    {{ __('dashboard.avg_speed') }}</div>
                                                     <div class="h2 mb-0 font-weight-bold text-gray-800">33</div>
-                                                    <a class="h6 text-xs" target="_blank" rel="nofollow" href="">Pentru fiecare masina in parte: &rarr;</a>
+                                                    <a class="h6 text-xs" target="_blank" rel="nofollow" href="">{{ __('dashboard.for_all_cars') }}: &rarr;</a>
                                                 </div>
                                                 <div class="col-auto">
                                                     <i class="fas fa-info-circle fa-2x text-gray-300"></i>
@@ -140,7 +140,7 @@
                     <div class="card shadow mb-4">
                         <a href="#collapseCardWeekly" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardWeekly">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Statistici saptamanale pentru toate masinile</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">{{ __('dashboard.weekly_stats') }}</h6>
                             </div>
                         </a>
 
@@ -152,9 +152,9 @@
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col mr-2">
                                                     <div class="h6 font-weight-bold text-primary text-uppercase mb-1">
-                                                        Kilometri parcursi</div>
+                                                    {{ __('dashboard.km_done') }}</div>
                                                     <div class="h2 mb-0 font-weight-bold text-gray-800">3,763</div>
-                                                    <a class="h6 text-xs" target="_blank" rel="nofollow" href="">Pentru fiecare masina in parte: &rarr;</a>
+                                                    <a class="h6 text-xs" target="_blank" rel="nofollow" href="">{{ __('dashboard.for_all_cars') }}: &rarr;</a>
                                                 </div>
                                                 <div class="col-auto">
                                                     <i class="fas fa-car-side fa-2x text-gray-300"></i>
@@ -172,9 +172,9 @@
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col mr-2">
                                                     <div class="h6 font-weight-bold text-success text-uppercase mb-1">
-                                                        Numar de curse</div>
+                                                    {{ __('dashboard.nr_of_races') }}</div>
                                                     <div class="h2 mb-0 font-weight-bold text-gray-800">43</div>
-                                                    <a class="h6 text-xs" target="_blank" rel="nofollow" href="">Pentru fiecare masina in parte: &rarr;</a>
+                                                    <a class="h6 text-xs" target="_blank" rel="nofollow" href="">{{ __('dashboard.for_all_cars') }}: &rarr;</a>
                                                 </div>
                                                 <div class="col-auto">
                                                     <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -192,9 +192,9 @@
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col mr-2">
                                                     <div class="h6 font-weight-bold text-info text-uppercase mb-1">
-                                                        Viteza medie</div>
+                                                    {{ __('dashboard.avg_speed') }}</div>
                                                     <div class="h2 mb-0 font-weight-bold text-gray-800">64</div>
-                                                    <a class="h6 text-xs" target="_blank" rel="nofollow" href="">Pentru fiecare masina in parte: &rarr;</a>
+                                                    <a class="h6 text-xs" target="_blank" rel="nofollow" href="">{{ __('dashboard.for_all_cars') }}: &rarr;</a>
                                                 </div>
                                                 <div class="col-auto">
                                                     <i class="fas fa-info-circle fa-2x text-gray-300"></i>
@@ -213,7 +213,7 @@
                     <div class="card shadow mb-4">
                         <a href="#collapseCardMonthly" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardMonthly">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Statistici Lunare pentru toate masinile</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">{{ __('dashboard.monthly_stats') }}</h6>
                             </div>
                         </a>
 
@@ -225,9 +225,9 @@
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col mr-2">
                                                     <div class="h6 font-weight-bold text-primary text-uppercase mb-1">
-                                                        Kilometri parcursi</div>
+                                                    {{ __('dashboard.km_done') }}</div>
                                                     <div class="h2 mb-0 font-weight-bold text-gray-800">12,321</div>
-                                                    <a class="h6 text-xs" target="_blank" rel="nofollow" href="">Pentru fiecare masina in parte: &rarr;</a>
+                                                    <a class="h6 text-xs" target="_blank" rel="nofollow" href="">{{ __('dashboard.for_all_cars') }}: &rarr;</a>
                                                 </div>
                                                 <div class="col-auto">
                                                     <i class="fas fa-car-side fa-2x text-gray-300"></i>
@@ -245,9 +245,9 @@
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col mr-2">
                                                     <div class="h6 font-weight-bold text-success text-uppercase mb-1">
-                                                        Numar de curse</div>
+                                                    {{ __('dashboard.nr_of_races') }}</div>
                                                     <div class="h2 mb-0 font-weight-bold text-gray-800">213</div>
-                                                    <a class="h6 text-xs" target="_blank" rel="nofollow" href="">Pentru fiecare masina in parte: &rarr;</a>
+                                                    <a class="h6 text-xs" target="_blank" rel="nofollow" href="">{{ __('dashboard.for_all_cars') }}: &rarr;</a>
                                                 </div>
                                                 <div class="col-auto">
                                                     <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -265,9 +265,9 @@
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col mr-2">
                                                     <div class="h6 font-weight-bold text-info text-uppercase mb-1">
-                                                        Viteza medie</div>
+                                                    {{ __('dashboard.avg_speed') }}</div>
                                                     <div class="h2 mb-0 font-weight-bold text-gray-800">54</div>
-                                                    <a class="h6 text-xs" target="_blank" rel="nofollow" href="">Pentru fiecare masina in parte: &rarr;</a>
+                                                    <a class="h6 text-xs" target="_blank" rel="nofollow" href="">{{ __('dashboard.for_all_cars') }}: &rarr;</a>
                                                 </div>
                                                 <div class="col-auto">
                                                     <i class="fas fa-info-circle fa-2x text-gray-300"></i>
@@ -286,7 +286,7 @@
                     <div class="card shadow mb-4">
                         <a href="#collapseCardYearly" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardYearly">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Statistici Anuale pentru toate masinile</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">{{ __('dashboard.yearly_stats') }}</h6>
                             </div>
                         </a>
 
@@ -298,9 +298,9 @@
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col mr-2">
                                                     <div class="h6 font-weight-bold text-primary text-uppercase mb-1">
-                                                        Kilometri parcursi</div>
+                                                    {{ __('dashboard.km_done') }}</div>
                                                     <div class="h2 mb-0 font-weight-bold text-gray-800">22,444</div>
-                                                    <a class="h6 text-xs" target="_blank" rel="nofollow" href="">Pentru fiecare masina in parte: &rarr;</a>
+                                                    <a class="h6 text-xs" target="_blank" rel="nofollow" href="">{{ __('dashboard.for_all_cars') }}: &rarr;</a>
                                                 </div>
                                                 <div class="col-auto">
                                                     <i class="fas fa-car-side fa-2x text-gray-300"></i>
@@ -318,9 +318,9 @@
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col mr-2">
                                                     <div class="h6 font-weight-bold text-success text-uppercase mb-1">
-                                                        Numar de curse</div>
+                                                    {{ __('dashboard.nr_of_races') }}</div>
                                                     <div class="h2 mb-0 font-weight-bold text-gray-800">1,032</div>
-                                                    <a class="h6 text-xs" target="_blank" rel="nofollow" href="">Pentru fiecare masina in parte: &rarr;</a>
+                                                    <a class="h6 text-xs" target="_blank" rel="nofollow" href="">{{ __('dashboard.for_all_cars') }}: &rarr;</a>
                                                 </div>
                                                 <div class="col-auto">
                                                     <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -338,9 +338,9 @@
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col mr-2">
                                                     <div class="h6 font-weight-bold text-info text-uppercase mb-1">
-                                                        Viteza medie</div>
+                                                    {{ __('dashboard.avg_speed') }}</div>
                                                     <div class="h2 mb-0 font-weight-bold text-gray-800">60</div>
-                                                    <a class="h6 text-xs" target="_blank" rel="nofollow" href="">Pentru fiecare masina in parte: &rarr;</a>
+                                                    <a class="h6 text-xs" target="_blank" rel="nofollow" href="">{{ __('dashboard.for_all_cars') }}: &rarr;</a>
                                                 </div>
                                                 <div class="col-auto">
                                                     <i class="fas fa-info-circle fa-2x text-gray-300"></i>

@@ -21,8 +21,29 @@
         <div class="alert-dropdown dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
             aria-labelledby="alertsDropdown">
             <h6 class="dropdown-header">
-                Alerts Center
+                {{ __('common.alert_center') }}
             </h6>
+        </div>
+    </li>
+
+    <!-- Nav Item - Language Switcher -->
+    <li class="nav-item dropdown no-arrow mx-1">
+        <a class="nav-link dropdown-toggle" href="#" id="langDropdown" role="button"
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-globe fa-fw"></i>
+            <span class="ml-1">{{ strtoupper(app()->getLocale()) }}</span>
+        </a>
+        <!-- Dropdown - Language Options -->
+        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+            aria-labelledby="langDropdown">
+            <a class="dropdown-item {{ app()->getLocale() == 'en' ? 'active' : '' }}"
+            href="{{ route('lang-switch', 'en') }}">
+                🇬🇧 English
+            </a>
+            <a class="dropdown-item {{ app()->getLocale() == 'ro' ? 'active' : '' }}"
+            href="{{ route('lang-switch', 'ro') }}">
+                🇷🇴 Română
+            </a>
         </div>
     </li>
 
@@ -41,16 +62,16 @@
             aria-labelledby="userDropdown">
             <a class="dropdown-item" href="#">
                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                Profile
+                {{ __('common.profile') }}
             </a>
             <a class="dropdown-item" href="#">
                 <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                Settings
+                {{ __('common.settings') }}
             </a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="{{ route('logout')}}">
                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                Logout
+                {{ __('common.logout') }}
             </a>
         </div>
     </li>

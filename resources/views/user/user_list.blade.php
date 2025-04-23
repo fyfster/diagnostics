@@ -17,8 +17,8 @@
             <div class="col-lg-12">
                 <div class="card mb-4">
                     <div class="card-header">
-                        <h6 class="m-0 font-weight-bold text-primary">Lista utilizatori</h6>
-                        <button class="btn btn-sm btn-primary" style="float: right; margin-top: -25px;" onclick="window.location.href='{{ route('user-form') }}'">Adauga utilizator</button>
+                        <h6 class="m-0 font-weight-bold text-primary">{{ __('user.list') }}</h6>
+                        <button class="btn btn-sm btn-primary" style="float: right; margin-top: -25px;" onclick="window.location.href='{{ route('user-form') }}'">{{ __('user.add_user') }}</button>
                     </div>
                     <div class="card-body">
                     <div class="card shadow mb-4">
@@ -27,10 +27,10 @@
                                 <table class="table table-bordered" id="userDataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Username</th>
-                                            <th>Email</th>
-                                            <th>Nume</th>
-                                            <th>Actiuni</th>
+                                            <th>{{ __('user.username') }}</th>
+                                            <th>{{ __('user.email') }}</th>
+                                            <th>{{ __('user.name') }}</th>
+                                            <th>{{ __('user.actions') }}</th>
                                         </tr>
                                     </thead>
                                 </table>
@@ -46,15 +46,15 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Sterge utilizator?</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">{{ __('user.delete_user') }}</h5>
                         <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
                         </button>
                     </div>
-                    <div class="modal-body">Esti sigur ca doresti sa stergi utilizatorul din lista?</div>
+                    <div class="modal-body">{{ __('user.delete_confirm') }}</div>
                     <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">No</button>
-                        <a class="btn btn-primary user-delete-yes">Yes</a>
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">{{ __('common.no') }}</button>
+                        <a class="btn btn-primary user-delete-yes">{{ __('common.yes') }}</a>
                     </div>
                 </div>
             </div>

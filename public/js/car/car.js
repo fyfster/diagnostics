@@ -1,7 +1,10 @@
-$(document).ready(function() {
+$(document).ready(function () {
     var refreshIntervalId;
-    
+
     $('#carDataTable').DataTable({
+        language: {
+            url: DATATABLES_LOCALE_URL
+        },
         ajax: {
             url: URL.carListDataTables,
             type: 'POST',
@@ -10,24 +13,24 @@ $(document).ready(function() {
             }
         },
         columns: [
-            { data: 'name'},
-            { data: 'brand'},
-            { data: 'model'},
-            { data: 'vin'},
-            { data: 'registration_number'},
-            { data: 'production_year'},
-            { data: 'actions', className: 'column-actions'}
+            { data: 'name' },
+            { data: 'brand' },
+            { data: 'model' },
+            { data: 'vin' },
+            { data: 'registration_number' },
+            { data: 'production_year' },
+            { data: 'actions', className: 'column-actions' }
         ],
         processing: true,
         serverSide: true
     });
 
-    $(document).on('click', '.show-car-stats', function() {
+    $(document).on('click', '.show-car-stats', function () {
         let carId = $(this).data('id');
         let url = $(this).data('href');
 
         // Function to send the AJAX request
-        var refreshData = function() {
+        var refreshData = function () {
             $.ajax({
                 url: url,
                 data: {
@@ -35,7 +38,7 @@ $(document).ready(function() {
                     "carId": carId
                 },
                 type: 'POST',
-                success: function(response) {
+                success: function (response) {
                     let carDiagnostics = response.carDiagnostics;
                     $('#carInfo').find('#last_stats_date').html(carDiagnostics.createdAt);
                     $('#carInfo').find('#speed_val').html(carDiagnostics.speed);
@@ -46,7 +49,7 @@ $(document).ready(function() {
                     let carDiagnosticsMax = response.carDiagnosticsMax;
                     $('#carInfo').find('#max_rpm_val').html(carDiagnosticsMax ? carDiagnosticsMax.max_rpm : 0);
                     $('#carInfo').find('#max_speed_val').html(carDiagnosticsMax ? carDiagnosticsMax.max_speed : 0);
-                    
+
                     $('#carInfo').modal('show');
                 }
             });
@@ -59,10 +62,10 @@ $(document).ready(function() {
         refreshData();
     });
 
-    $(document).on('click', '.car-delete-btn', function() {
+    $(document).on('click', '.car-delete-btn', function () {
         $('.car-delete-yes').attr('href', $(this).data('href'));
     });
-    
+
     // Stop sending the AJAX request when the modal is closed
     $('#carInfo').on('hidden.bs.modal', function () {
         clearInterval(refreshIntervalId);

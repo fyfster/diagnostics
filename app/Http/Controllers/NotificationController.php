@@ -27,7 +27,7 @@ class NotificationController extends MyController
             ->whereNull('read_at')
             ->update(['read_at' => now()]);
 
-        return response()->json(['message' => 'You are up to date with all notifications']);
+        return response()->json(['message' => __('common.notification_read')]);
     }
 
     public function getNotificationList()
@@ -46,7 +46,7 @@ class NotificationController extends MyController
         $dataTablesFilters->userId = $userId;
         $carId = $request->input('car_id');
         if ($carId && !Car::find($carId)) {
-            return response()->json(''); 
+            return response()->json('');
         }
 
         $dataTablesFilters->carId = $carId ? $carId : null;

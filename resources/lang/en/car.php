@@ -1,0 +1,27 @@
+<?php
+
+return [
+    'list' => 'Cars list',
+    'add' => 'Add car',
+    'name' => 'Name',
+    'brand' => 'Brand',
+    'model' => 'Model',
+    'vin' => 'VIN',
+    'reg_nr' => 'Registration number',
+    'production_year' => 'Production year',
+    'actions' => 'Actions',
+    'delete' => 'Delete car?',
+    'delete_confirm' => 'Are you sure you want to delete this car from the list?',
+    'stats_live' => 'Car statistics LIVE',
+    'stats_data' => 'Statistics date',
+    'max_values' => 'Maximum values during last run',
+    'max_rotation' => 'Rotations',
+    'max_speed' => 'Speed',
+    'speed' => 'Speed',
+    'fuel_level' => 'Fuel level',
+    'rotation' => 'Rotations',
+    'cooler_temp' => 'Cooler temperature',
+    'change' => 'Change',
+    'add_new_car' => 'Add a new car',
+    'nickname' => 'Car nickname',
+];

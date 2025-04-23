@@ -24,6 +24,7 @@
     <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
     <script>
         var TOKEN = "{{ csrf_token() }}";
+        var DATATABLES_LOCALE_URL = "{{ asset('datatables/lang/' . app()->getLocale() . '.json') }}";
         var BASE_URL = {
             notifications: "{{ route('notifications') }}",
             notifications_read: "{{ route('notifications-read') }}"
