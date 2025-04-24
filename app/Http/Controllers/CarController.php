@@ -147,7 +147,7 @@ class CarController extends MyController
         ]);
     }
 
-    private function validateCarData(Request $request)
+    public function validateCarData(Request $request)
     {
         $request->validate([
             'name' => 'string',
@@ -172,7 +172,7 @@ class CarController extends MyController
         ]);
     }
 
-    private function checkCar(array $input)
+    public function checkCar(array $input)
     {
         $carId = $input['car_id'];
 

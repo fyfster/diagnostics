@@ -79,9 +79,9 @@ class RolesAndPermissionsSeeder extends Seeder
 
     private function addAdminUser()
     {
-        $username = config('ADMIN_USERNAME');
-        $email = config('ADMIN_EMAIL');
-        $password = config('ADMIN_PASSWORD');
+        $username = env('ADMIN_USERNAME');
+        $email = env('ADMIN_EMAIL');
+        $password = env('ADMIN_PASSWORD');
 
         $user = User::firstOrCreate(
             [
@@ -92,7 +92,5 @@ class RolesAndPermissionsSeeder extends Seeder
                 'password' => Hash::make($password),
             ]
         );
-
-        $user->roles()->syncWithoutDetaching(1);
     }
 }

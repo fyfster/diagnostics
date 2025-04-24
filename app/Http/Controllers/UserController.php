@@ -138,7 +138,7 @@ class UserController extends MyController
             ]);
     }
 
-    private function validateUserData(Request $request, bool $isEdit = false)
+    public function validateUserData(Request $request, bool $isEdit = false)
     {
         $dataToValidate = [
             'username' => 'required|string',
@@ -159,10 +159,10 @@ class UserController extends MyController
         }
     }
 
-    private function checkUser(array $input)
+    public function checkUser(array $input)
     {
         $userId = $input['user_id'];
-        
+
         $user = UserModel::find($userId);
 
         if ($user === null) {
