@@ -36,6 +36,7 @@ This is a real-time vehicle monitoring project with a Laravel + MySQL backend an
    - Reports
    - Dashboard
 5. When abnormal data is given fom the device alerts are generated and shown as notifications on the platform
+6. Support for multilingual (EN, RO) language switching
 
 ---
 
