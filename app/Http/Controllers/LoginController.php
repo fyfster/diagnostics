@@ -19,14 +19,14 @@ class LoginController extends Controller
         if (!Auth::attempt(['username' => $username, 'password' => $password])) {
             return redirect()->route('login')->with('error', 'Invalid username or password');
         }
-        
+
         return redirect()->route('dashboard');
     }
 
     public function logout(Request $request)
     {
         Auth::logout();
-        
-        return redirect()->route('home');
+
+        return redirect()->route('/');
     }
 }
