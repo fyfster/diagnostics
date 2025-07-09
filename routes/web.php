@@ -21,8 +21,10 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+    return auth()->check()
+        ? redirect()->route('dashboard')
+        : redirect()->route('login');
+});
 
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
